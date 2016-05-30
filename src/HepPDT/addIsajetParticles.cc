@@ -25,7 +25,7 @@ bool  addIsajetParticles( std::istream & pdfile, TableBuilder & tb )
           detail::parseIsajetLine( tpd, pdline );
     }
   }
-  std::cout << "found " << tb.size() << " particles" << std::endl;
+  //std::cout << "found " << tb.size() << " particles" << std::endl;
   return true;
 }
 

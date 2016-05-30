@@ -43,7 +43,7 @@ bool  addPDGParticles( std::istream & pdfile, TableBuilder & tb )
 	}
     }
   }
-  std::cout << "found " << tb.size() << " particles" << std::endl;
+  //std::cout << "found " << tb.size() << " particles" << std::endl;
   return true;
 }
 
