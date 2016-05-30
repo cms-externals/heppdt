@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include "tbb/concurrent_unordered_map.h"
 
 #include "HepPDT/ParticleID.hh"
 #include "HepPDT/ParticleData.hh"
@@ -44,11 +45,19 @@ namespace HepPDT {
 class ParticleDataTable  {
   
 public:
+  struct PIDhash {
+    PIDhash() {}
+    size_t operator()(const ParticleID& p) const
+    {
+      return tbb::tbb_hasher(p.pid());
+    }
+  };
+
   typedef  ParticleData                     CPD;
 
   typedef  std::map<ParticleID,TempParticleData>  TempMap;
-  typedef  std::map<ParticleID,ParticleData,ParticleDataTableComparison> PDTMap;
-  typedef  std::map<std::string,ParticleID>       PDTNameMap;
+  typedef  tbb::concurrent_unordered_map<ParticleID,ParticleData,PIDhash> PDTMap;
+  typedef  tbb::concurrent_unordered_map<std::string,ParticleID>       PDTNameMap;
 
   typedef PDTMap::const_iterator                  const_iterator;
   typedef PDTNameMap::const_iterator              const_iteratorByName;

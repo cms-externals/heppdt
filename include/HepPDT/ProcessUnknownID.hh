@@ -33,12 +33,12 @@ public:
   ParticleData  * callProcessUnknownID( ParticleID, const ParticleDataTable & );
 
 protected:
-  ProcessUnknownID( ) : alreadyHere(false) {}
+  ProcessUnknownID( ) {}
   virtual ~ProcessUnknownID( ) {}
 
 private: 
 
-  bool alreadyHere;
+  static thread_local bool alreadyHere;
 
   virtual ParticleData  * processUnknownID( ParticleID, 
                                             const ParticleDataTable & ) = 0;

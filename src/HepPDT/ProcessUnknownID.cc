@@ -9,14 +9,23 @@
 
 namespace HepPDT {
 
+thread_local bool ProcessUnknownID::alreadyHere = false;
+
+class sentry {
+public:
+  sentry(bool& b) : b_(b) { b_ = true; }
+  ~sentry() { b_ = false; }
+private:
+  bool& b_;
+};
+
 ParticleData * ProcessUnknownID::callProcessUnknownID
               ( ParticleID key, const ParticleDataTable & pdt ) 
 { 
     ParticleData * pd = 0;
     if( !alreadyHere ) {
-       alreadyHere = true;
+       sentry s(alreadyHere);
        pd = processUnknownID( key, pdt );
-       alreadyHere = false;
     } 
     return pd;
 }
