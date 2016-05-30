@@ -95,8 +95,8 @@ bool  addEvtGenParticles( std::istream & pdfile, TableBuilder & tb )
       }
     }
   }
-  std::cout << "found " << tb.size() << " particles and " 
-                   << tb.aliasSize() << " aliases" << std::endl;
+  //std::cout << "found " << tb.size() << " particles and " 
+  //                 << tb.aliasSize() << " aliases" << std::endl;
   // dt.writeDefinitions();
   return true;
 }
