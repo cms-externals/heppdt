@@ -19,8 +19,6 @@ std::string versionName( )
 
 void version( )
 {
-    std::cout << " --------------- HepPDT Version " << versionName()
-              << " --------------- " << std::endl;
 }
 
 void writeVersion( std::ostream & os )
