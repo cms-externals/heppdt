@@ -1,0 +1,79 @@
+# $Id: DECAY-longlived.DEC,v 1.1 2006/01/12 02:20:15 garren Exp $
+#
+# This file contains additional decays of long-lived weakly decaying
+# strange particles such as K_S0, Lambda0, Sigma, Xi0, Xi-, Omega-
+# (and antiparticles). Since these particle travel finite distances
+# and may interact with detector material, they should be decayed
+# by Geant and not by EvtGen. However, for generator level studies,
+# this file may be used as a user decay file in order to have
+# EvtGen simulate these decays.
+#
+# Note that K_L0 decays are present not included.
+#
+
+Decay K_S0
+0.6861    pi+  pi-                          PHSP;
+0.3139    pi0  pi0                          PHSP;
+Enddecay
+
+Decay Lambda0
+0.6390    p+  pi-                       PHSP;
+0.3580    n0  pi0                       PHSP;
+0.0018    n0  gamma                      PHSP;
+0.0005    p+  pi-  gamma                 PHSP;
+0.0006    p+  e-   anti-nu_e           PHOTOS PHSP;
+0.0001    p+  mu-  anti-nu_mu          PHOTOS PHSP;
+Enddecay
+Decay anti-Lambda0
+0.6390    anti-p-  pi+                      PHSP;
+0.3580    anti-n0  pi0                      PHSP;
+0.0018    anti-n0  gamma                     PHSP;
+0.0005    anti-p-  pi+  gamma                PHSP;
+0.0006    anti-p-  e+   nu_e       PHOTOS   PHSP;
+0.0001    anti-p-  mu+  nu_mu      PHOTOS    PHSP;
+Enddecay
+
+Decay Sigma+
+0.5157    p+  pi0                       PHSP;
+0.4831    n0  pi+                       PHSP;
+0.0012    p+  gamma                      PHSP;
+Enddecay
+Decay anti-Sigma-
+0.5157    anti-p-  pi0                      PHSP;
+0.4831    anti-n0  pi-                      PHSP;
+0.0012    anti-p-  gamma                     PHSP;
+Enddecay
+
+Decay Sigma-
+1.0000    n0    pi-                     PHSP;
+Enddecay
+Decay anti-Sigma+
+1.0000    anti-n0   pi+                     PHSP;
+Enddecay
+
+Decay Xi0
+1.0000    Lambda0   pi0                     PHSP;
+Enddecay
+Decay anti-Xi0
+1.0000    anti-Lambda0 pi0                     PHSP;
+Enddecay
+
+Decay Xi-
+1.0000    Lambda0   pi-                     PHSP;
+Enddecay
+Decay anti-Xi+
+1.0000    anti-Lambda0 pi+                     PHSP;
+Enddecay
+
+Decay Omega-
+0.6780    Lambda0   K-                      PHSP;
+0.2360    Xi0   pi-                     PHSP;
+0.0860    Xi-   pi0                     PHSP;
+Enddecay
+Decay anti-Omega+
+0.6780    anti-Lambda0  K+                     PHSP;
+0.2360    anti-Xi0   pi+                    PHSP;
+0.0860    anti-Xi+   pi0                    PHSP;
+Enddecay
+
+End

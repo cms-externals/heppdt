@@ -1,0 +1,8 @@
+#! /bin/sh
+# @configure_input@
+
+rm -f listEvtGenNames.out
+
+./listEvtGenNames@EXEEXT@ 
+@DIFF_Q@ listEvtGenNames.out @srcdir@/listEvtGenNames.output > /dev/null
+

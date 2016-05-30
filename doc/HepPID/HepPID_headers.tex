@@ -1,0 +1,83 @@
+\section {HepPID headers}
+\label{PIDheaders}
+
+\subsection {ParticleIDTranslations.hh}
+
+\begin{tabbing}
+
+{\bf namespace HepPDT} \\  \\
+
+{\bf Free functions:} \\
+\hspace{0.5in} {\bf int translateHerwigtoPDT( const int herwigID);} \\
+\hspace{0.5in} {\bf int translatePDTtoHerwig( const int pid );} \\ 
+\hspace{0.5in} {\bf void  writeHerwigTranslation( std::ostream \& os );} \\  \\
+
+\hspace{0.5in} {\bf int translateIsajettoPDT( const int isajetID );} \\
+\hspace{0.5in} {\bf int translatePDTtoIsajet( const int pid );} \\ 
+\hspace{0.5in} {\bf void  writeIsajetTranslation( std::ostream \& os );} \\  \\
+
+\hspace{0.5in} {\bf int translatePythiatoPDT( const int pythiaID );} \\
+\hspace{0.5in} {\bf int translatePDTtoPythia( const int pid );} \\ 
+\hspace{0.5in} {\bf void  writePythiaTranslation( std::ostream \& os );} \\  \\
+
+\hspace{0.5in} {\bf int translateEvtGentoPDT( const int evtGenID );} \\
+\hspace{0.5in} {\bf int translatePDTtoEvtGen( const int pid );} \\
+\hspace{0.5in} {\bf void  writeEvtGenTranslation( std::ostream \& os );} \\  \\
+
+\hspace{0.5in} {\bf int translatePDGtabletoPDT( const int pdgID);} \\
+\hspace{0.5in} {\bf int translatePDTtoPDGtable( const int pid );} \\
+\hspace{0.5in} {\bf void  writePDGTranslation( std::ostream \& os )} \\  \\
+
+\hspace{0.5in} {\bf int translateQQtoPDT( const int qqID);} \\
+\hspace{0.5in} {\bf int translatePDTtoQQ( const int pid );} \\
+\hspace{0.5in} {\bf int translateQQbar( const int qqID);} \\
+\hspace{0.5in} {\bf int translateInverseQQbar( const int pid );} \\
+\hspace{0.5in} {\bf void  writeQQTranslation( std::ostream \& os );} \\  \\
+
+\hspace{0.5in} {\bf int translateGeanttoPDT( const int geantID);} \\
+\hspace{0.5in} {\bf int translatePDTtoGeant( const int pid );} \\  \\
+
+\end{tabbing}
+
+The writeXXXTranslation functions write a list of all known particle ID 
+translations for the specified Monte Carlo generator.
+
+QQ needs extra tranlation methods for the quark pair pseudo-particles since the 
+ID numbers overlap.
+
+\vfill\eject
+
+\subsection {ParticleName.hh}
+
+\begin{tabbing}
+
+{\bf namespace HepPDT} \\  \\
+
+{\bf Free functions:} \\
+
+\hspace{0.5in} {\bf std::string  particleName( const int );} \\
+\hspace{1.0in}  Returns the HepPDT standard name. \\
+
+\hspace{0.5in} {\bf int  particleName( const std::string \& );} \\
+\hspace{1.0in}  Returns the HepPDT standard ID. \\
+
+\hspace{0.5in} {\bf void  listHepPDTParticleNames( std::ostream \& os );} \\
+\hspace{1.0in} List all defined names.  \\
+
+\hspace{0.5in} {\bf bool validParticleName( const int );} \\
+\hspace{1.0in} Verify that this particle ID has a valid name.  \\
+
+\hspace{0.5in} {\bf bool validParticleName( const std::string \& );} \\
+\hspace{1.0in} Verify that this particle string has a valid ID.  \\
+
+\hspace{0.5in} {\bf class ParticleNameMap;} \\
+\hspace{0.5in} {\bf ParticleNameMap const \&  getParticleNameMap();} \\
+\hspace{1.0in} Access ParticleNameMap for other purposes.  \\
+\end{tabbing}
+
+Only getParticleNameMap is allowed to access ParticleNameMap.
+ParticleNameMap is initalized by the first call to getParticleNameMap.
+Because the class is static, this initialization only happens once.
+We use a data table so that compile time is not impacted.
+
+\vfill\eject
