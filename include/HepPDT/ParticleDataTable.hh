@@ -47,9 +47,9 @@ class ParticleDataTable  {
 public:
   struct PIDhash {
     PIDhash() {}
-    size_t operator()(const ParticleID& p) const
+    size_t operator()(const ParticleID& p) const 
     {
-      return tbb::tbb_hasher(p.pid());
+      return std::hash<int>{}(p.pid());
     }
   };
 
